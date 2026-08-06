@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "corpus-shift-auditor"
+version = "0.1.0"
+description = "Audits lexical and structural distribution shift in text corpora."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Ayo Adetayo" }]
+license = { file = "LICENSE" }
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["ruff>=0.6"]
+
+[project.scripts]
+corpus-shift-auditor = "corpus_shift_auditor.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/corpus_shift_auditor"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

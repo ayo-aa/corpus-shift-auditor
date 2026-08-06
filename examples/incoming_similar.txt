@@ -1,0 +1,3 @@
+An agent reviewed a delayed order and issued a refund.
+The customer received a replacement package after shipping failed.
+

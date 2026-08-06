@@ -1,0 +1,3 @@
+Distributed GPU workers synchronized gradients across accelerator nodes.
+A damaged checkpoint forced the training job to recover from an earlier snapshot.
+

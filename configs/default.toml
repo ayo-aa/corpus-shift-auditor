@@ -1,0 +1,14 @@
+[profile]
+order = 3
+alpha = 0.1
+min_count = 1
+
+[risk_weights]
+perplexity = 0.35
+lexical_divergence = 0.25
+out_of_vocabulary = 0.20
+structure = 0.20
+
+# The first implementation exposes these choices in code. Configuration-backed
+# weights and empirically calibrated thresholds are an M3 milestone.
+
