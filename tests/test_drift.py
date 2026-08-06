@@ -1,8 +1,9 @@
 import unittest
+from pathlib import Path
+from tempfile import TemporaryDirectory
 
 from corpus_shift_auditor import audit_corpus, build_profile
 from corpus_shift_auditor.drift import CorpusProfile
-
 
 REFERENCE = [
     "Customers requested refunds for delayed orders.",
@@ -13,9 +14,6 @@ REFERENCE = [
 
 class DriftTests(unittest.TestCase):
     def test_profile_can_be_saved_and_loaded(self):
-        from tempfile import TemporaryDirectory
-        from pathlib import Path
-
         profile = build_profile(REFERENCE, name="support")
         with TemporaryDirectory() as directory:
             path = Path(directory) / "profile.json"
@@ -54,4 +52,3 @@ class DriftTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -1,7 +1,7 @@
 import json
+import unittest
 from pathlib import Path
 from tempfile import TemporaryDirectory
-import unittest
 
 from corpus_shift_auditor.cli import main
 
@@ -43,4 +43,3 @@ class CliTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

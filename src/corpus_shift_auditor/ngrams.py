@@ -7,12 +7,11 @@ and already supports a useful end-to-end baseline.
 
 from __future__ import annotations
 
-from collections import Counter
-from dataclasses import dataclass, field
 import math
 import re
-from typing import Iterable, Sequence
-
+from collections import Counter
+from collections.abc import Iterable, Sequence
+from dataclasses import dataclass, field
 
 TOKEN_RE = re.compile(r"[\w]+(?:['’-][\w]+)*|[^\w\s]", flags=re.UNICODE)
 START = "<START>"
@@ -45,7 +44,7 @@ class NGramLanguageModel:
         if self.min_count < 1:
             raise ValueError("min_count must be at least one")
 
-    def fit(self, texts: Iterable[str]) -> "NGramLanguageModel":
+    def fit(self, texts: Iterable[str]) -> NGramLanguageModel:
         """Fit vocabulary and n-gram counts from an iterable of documents."""
 
         documents = [tokenize(text) for text in texts]
@@ -117,13 +116,13 @@ class NGramLanguageModel:
         }
 
     @classmethod
-    def from_dict(cls, payload: dict[str, object]) -> "NGramLanguageModel":
+    def from_dict(cls, payload: dict[str, object]) -> NGramLanguageModel:
         model = cls(
             order=int(payload["order"]),
             alpha=float(payload["alpha"]),
             min_count=int(payload["min_count"]),
         )
-        model.vocabulary = set(str(token) for token in payload["vocabulary"])
+        model.vocabulary = {str(token) for token in payload["vocabulary"]}
         model.ngram_counts = Counter(
             {tuple(key): int(value) for key, value in payload["ngram_counts"]}
         )
@@ -131,4 +130,3 @@ class NGramLanguageModel:
             {tuple(key): int(value) for key, value in payload["context_counts"]}
         )
         return model
-

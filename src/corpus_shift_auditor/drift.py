@@ -2,16 +2,15 @@
 
 from __future__ import annotations
 
-from collections import Counter
-from dataclasses import asdict, dataclass
 import json
 import math
-from pathlib import Path
 import re
-from typing import Iterable
+from collections import Counter
+from collections.abc import Iterable
+from dataclasses import asdict, dataclass
+from pathlib import Path
 
 from .ngrams import NGramLanguageModel, tokenize
-
 
 SENTENCE_RE = re.compile(r"(?<=[.!?])\s+")
 PUNCTUATION_RE = re.compile(r"[^\w\s]", flags=re.UNICODE)
@@ -53,7 +52,7 @@ class CorpusProfile:
         destination.write_text(json.dumps(self.to_dict(), indent=2), encoding="utf-8")
 
     @classmethod
-    def from_dict(cls, payload: dict[str, object]) -> "CorpusProfile":
+    def from_dict(cls, payload: dict[str, object]) -> CorpusProfile:
         return cls(
             name=str(payload["name"]),
             token_counts={
@@ -65,7 +64,7 @@ class CorpusProfile:
         )
 
     @classmethod
-    def load(cls, path: str | Path) -> "CorpusProfile":
+    def load(cls, path: str | Path) -> CorpusProfile:
         payload = json.loads(Path(path).read_text(encoding="utf-8"))
         return cls.from_dict(payload)
 
