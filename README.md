@@ -81,11 +81,10 @@ baseline and has a concrete research plan, but the dependency-parser and neural
 experiments are not implemented yet. Results in `reports/` will only be promoted
 to the README after reproducible multi-seed experiments are complete.
 
-## Data and provenance
+## Data and licensing
 
 No course corpus is distributed here. Bring your own UTF-8 text or follow a
-future licensed dataset adapter. See [DATA_USAGE.md](DATA_USAGE.md) and
-[PROVENANCE.md](PROVENANCE.md).
+future licensed dataset adapter. See [DATA_USAGE.md](DATA_USAGE.md).
 
 ## Development
 
