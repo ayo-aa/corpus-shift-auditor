@@ -25,8 +25,8 @@ test cases, trained checkpoints, or course datasets are distributed.
 
 ## Attribution expectations
 
-Before public release, meaningful third-party code and AI-assisted contributions
-must be recorded here or in commit/PR descriptions. External implementations
+Before public release, meaningful third-party code must be recorded here or in
+commit/PR descriptions. External implementations
 used for comparison should be cited but kept separate from the reference
 implementation whenever possible.
 
@@ -36,4 +36,3 @@ implementation whenever possible.
 - Its risk score is a transparent heuristic, not a probabilistic guarantee.
 - Future parser results must distinguish reimplementation from imported code.
 - Results from prior course datasets must not be presented as results from this repository.
-
